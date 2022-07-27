@@ -1,3 +1,7 @@
+# take care of line endings to avoid conflicts between OS versions
 * text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
+
+# tell linguist to classify .ipynb as Python
+*.ipynb linguist-language=Python
