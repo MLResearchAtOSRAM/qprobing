@@ -7,16 +7,21 @@
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
 ## Quantitative Probing in Python
-<!-- Can we infer the quality of a causal analysis by checking how many previously
-known causal effects could be correctly recovered by the model? Yes, we can! -->
-This is a repository for quantitative probing, which is a method of validating
+Can we validate the quality of a causal analysis (correctly recovered causal
+graph and target causal effect) by checking how many previously
+known causal effects could be correctly recovered by the model (hit rate)?
+Yes, we can!
+
+<img src="https://github.com/MLResearchAtOSRAM/qprobing/blob/main/paper_results/plots/edge_differences.png?raw=True" width="225"/> <img src="https://github.com/MLResearchAtOSRAM/qprobing/blob/main/paper_results/plots/absolute_effect_differences.png?raw=True" width="225"/>
+
+This is a repository for **quantitative probing**, which is a method of validating
 graphical causal models using quantitative domain knowledge.
 It contains two main components:
 - The ```qprobing``` package provides methods for a statistical evaluation of the
   effectiveness of different quantitative probing variants.
 - The Juypter notebooks ```analysis.ipynb``` and ```connected_analysis.ipynb```,
   together with the ```pkl``` files in this repo, can be used to recreate the
-  results of a related research paper. They should also be used as a guide for
+  results of a related research paper (to be published soon). They should also be used as a guide for
   performing your own analyses.
 
 
@@ -30,6 +35,11 @@ It contains two main components:
    ```
    pip install https://github.com/MLResearchAtOSRAM/qprobing/archive/main.tar.gz
    ```
+
+If you want to clone the repository into a folder for development on your local machine, please navigate to the folder and run:
+```
+git clone https://github.com/MLResearchAtOSRAM/qprobing
+```
 
 ## Citation
 If you use the ```qprobing``` package in your work, please cite
