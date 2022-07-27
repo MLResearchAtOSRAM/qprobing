@@ -69,7 +69,7 @@ def example_data_path(example_generator):
 def example_preparator(example_model, example_nx_graph):
     preparator = TaskPreparator(example_model, example_nx_graph)
     preparator.prepare_task(
-        p_hint=0.5,
+        p_hint=0.8,
         p_probe=0.5,
         tolerance=0.1,
     )
