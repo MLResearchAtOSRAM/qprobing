@@ -7,6 +7,8 @@
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
 ## Quantitative Probing in Python
+<!-- Can we infer the quality of a causal analysis by checking how many previously
+known causal effects could be correctly recovered by the model? Yes, we can! -->
 This is a repository for quantitative probing, which is a method of validating
 graphical causal models using quantitative domain knowledge.
 It contains two main components:
@@ -18,21 +20,19 @@ It contains two main components:
   performing your own analyses.
 
 
-## Installation
-1. Install Python 3.8. More recent versions should work, too, but the build and
-   test pipeline ensures a working state of the package only for Python 3.8 on
-   Windows. We recommend using a virtual environment for the installation.
+## Installation of the ```qprobing``` package
+1. Install ```Python 3.8 or 3.9```. More recent versions should work, too, but the build and
+   test pipeline ensures a working state only for these versions. We recommend using a virtual environment for the installation.
 2. Install the ```cause2e``` package for causal end-to-end analysis by following
    [these
    instructions](https://github.com/MLResearchAtOSRAM/cause2e#installation).
-3. Need to figure this out myself first #TODO
-   Install the rest of the needed dependencies by running
+3. Install ```qprobing``` from source by running
    ```
-   pip install -r requirements.txt
+   pip install https://github.com/MLResearchAtOSRAM/qprobing/archive/main.tar.gz
    ```
 
 ## Citation
-If you use the qprobing package in your work, please cite
+If you use the ```qprobing``` package in your work, please cite
 
 Daniel Grünbaum (2022). qprobing: A Python package for evaluating the
 effectiveness of quantitative probing for causal model validation. https://github.com/MLResearchAtOSRAM/qprobing
