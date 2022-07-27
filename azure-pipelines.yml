@@ -1,0 +1,62 @@
+trigger:
+  branches:
+    include:
+    - '*'
+
+strategy:
+  matrix:
+    WindowsPython38:
+      os_version: 'windows-latest'
+      python_version: '3.8'
+    WindowsPython39:
+      os_version: 'windows-latest'
+      python_version: '3.9'
+    UbuntuPython38:
+      os_version: 'ubuntu-latest'
+      python_version: '3.8'
+    UbuntuPython39:
+      os_version: 'ubuntu-latest'
+      python_version: '3.9'
+
+pool:
+  vmImage: '$(os_version)'
+
+steps:
+
+  - script: |
+      echo "$(os_version)"
+      echo "$(python_version)"
+      echo "Branchname=$(Build.SourceBranch)"
+    displayName: 'Print pipeline parameters'
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: $(python_version)
+
+  - script: |
+      dir C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk
+      set JDK_HOME=C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.332-9\x64
+      choco install graphviz
+      pip install wheel
+      pip install https://github.com/bd2kccd/py-causal/archive/master.tar.gz
+      pip install -r requirements.txt
+    displayName: 'Setup environment and install dependencies (Windows)'
+    condition: eq(variables['os_version'], 'windows-latest')
+
+  - script: |
+      sudo apt install graphviz
+      pip install wheel
+      pip install https://github.com/bd2kccd/py-causal/archive/master.tar.gz
+      pip install -r requirements.txt
+    displayName: 'Setup environment and install dependencies (Ubuntu)'
+    condition: eq(variables['os_version'], 'ubuntu-latest')
+
+  - script: flake8
+    displayName: 'Lint: Check codestyle'
+
+  - script: bash test_runner.sh
+    displayName: 'Run unit tests and code coverage'
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: 'build'

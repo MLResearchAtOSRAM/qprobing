@@ -1,0 +1,4 @@
+# this should duplicate the vscode settings for automated codestyle checks
+[flake8]
+ignore=E402
+max-line-length=120
