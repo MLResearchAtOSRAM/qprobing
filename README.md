@@ -12,7 +12,7 @@ graph and target causal effect) by checking how many previously
 known causal effects could be correctly recovered by the model (hit rate)?
 Yes, we can!
 
-<img src="https://github.com/MLResearchAtOSRAM/qprobing/blob/main/paper_results/plots/edge_differences.png?raw=True" width="425"/> <img src="https://github.com/MLResearchAtOSRAM/qprobing/blob/main/paper_results/plots/absolute_effect_differences.png?raw=True" width="425"/>
+<img src="https://github.com/MLResearchAtOSRAM/qprobing/blob/main/paper_results/plots/edge_differences.png?raw=True" width="375"/> <img src="https://github.com/MLResearchAtOSRAM/qprobing/blob/main/paper_results/plots/absolute_effect_differences.png?raw=True" width="375"/>
 
 This is a repository for **quantitative probing**, which is a method of validating
 graphical causal models using quantitative domain knowledge.
