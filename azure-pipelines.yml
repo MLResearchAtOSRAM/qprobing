@@ -43,7 +43,7 @@ steps:
 
   - script: |
       dir C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk
-      set JDK_HOME=C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.342-7\x64
+      set JDK_HOME=C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\8.0.345-1.1\x64
       choco install graphviz
       pip install wheel
       pip install https://github.com/bd2kccd/py-causal/archive/master.tar.gz
