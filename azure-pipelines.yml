@@ -44,7 +44,7 @@ steps:
   - script: |
       set jdk_dir=C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk
       dir %jdk_dir%
-      FOR /F "tokens=*" %g IN ('dir /b /ad %jdk_dir%\8.0.*') do (SET JDK_HOME=%jdk_dir%\%g\x_64)
+      FOR /F "tokens=*" %%g IN ('dir /b /ad %jdk_dir%\8.0.*') do (SET JDK_HOME=%jdk_dir%\%%g\x_64)
       choco install graphviz
       pip install wheel
       pip install https://github.com/bd2kccd/py-causal/archive/master.tar.gz
