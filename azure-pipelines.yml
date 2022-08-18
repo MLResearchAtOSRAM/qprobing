@@ -67,12 +67,6 @@ steps:
   - script: bash test_runner.sh
     displayName: 'Run unit tests and code coverage'
 
-  - task: PublishTestResults@2
-  inputs:
-    testResultsFiles: '**/test-*.xml'
-    testRunTitle: 'Publish test results for Python $(python.version) on $(os.version)'
-  displayName: 'Publish test results'
-
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: 'build'
