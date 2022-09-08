@@ -21,8 +21,8 @@ It contains two main components:
   effectiveness of different quantitative probing variants.
 - The Juypter notebooks ```analysis.ipynb``` and ```connected_analysis.ipynb```,
   together with the ```pkl``` files in this repo, can be used to recreate the
-  results of a related research paper (to be published soon). They should also be used as a guide for
-  performing your own analyses.
+  results of a [related research article](https://arxiv.org/abs/2209.03013).
+  They should also be used as a guide for performing your own analyses.
 
 
 ## Installation of the ```qprobing``` package
@@ -44,5 +44,10 @@ git clone https://github.com/MLResearchAtOSRAM/qprobing
 ## Citation
 If you use the ```qprobing``` package in your work, please cite
 
+```
 Daniel Grünbaum (2022). qprobing: A Python package for evaluating the
-effectiveness of quantitative probing for causal model validation. https://github.com/MLResearchAtOSRAM/qprobing
+effectiveness of quantitative probing for causal model validation.
+https://github.com/MLResearchAtOSRAM/qprobing
+```
+
+and the [related research article](https://arxiv.org/abs/2209.03013).
