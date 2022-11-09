@@ -16,7 +16,12 @@ Yes, we can!
 
 This is a repository for **quantitative probing**, which is a method of validating
 graphical causal models using quantitative domain knowledge.
-It contains two main components:
+For more info about the method, check out this
+[presentation](https://github.com/MLResearchAtOSRAM/qprobing/blob/main/qprobing_cdsm.pdf)
+from
+[CDSM22](https://www.causalscience.org/meeting/programme/programme-2022/).
+
+The repo contains two main components:
 - The ```qprobing``` package provides methods for a statistical evaluation of the
   effectiveness of different quantitative probing variants.
 - The Juypter notebooks ```analysis.ipynb``` and ```connected_analysis.ipynb```,
