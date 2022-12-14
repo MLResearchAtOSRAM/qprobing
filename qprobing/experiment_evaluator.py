@@ -35,8 +35,11 @@ class ExperimentEvaluator:
         return cls(results_list, filter_params)
 
     def get_mean(self, attribute_name):
-        attribute = getattr(self, f"_{attribute_name}")  # TODO: Decide if the attributes are public or not
+        attribute = self.get_data(attribute_name)
         return np.nanmean(attribute)
+
+    def get_data(self, attribute_name):
+        return getattr(self, f"_{attribute_name}")  # TODO: Decide if the attributes are public or not
 
     def show_full_info(self):
         """Calls all public info methods of the evaluator."""
@@ -123,7 +126,11 @@ class ExperimentEvaluator:
     def _plot(self, x_name, y_name, plotting_options={}):
         x_data = getattr(self, x_name)
         y_data = getattr(self, y_name)
-        plt.scatter(x_data, y_data)
+        if 'opacity' in plotting_options:
+            alpha = plotting_options['opacity']
+        else:
+            alpha = 1
+        plt.scatter(x_data, y_data, alpha=alpha)
         x_default = x_name
         x_label = plotting_options.get('x_label', x_default)
         plt.xlabel(x_label)
