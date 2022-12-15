@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 from numpy import NaN, isclose
-from qprobing.meta_evaluator import MetaEvaluator, VisualizationError
+from qprobing.meta_evaluator import MetaEvaluator, VisualizationError, BinningError
 from qprobing.filter_parameters_manager import FilterParametersManager
 
 
@@ -40,6 +40,32 @@ def _plot_quantity_means(pickle_path, filter_params_dict):
     meta_evaluator = MetaEvaluator.from_pkl(pickle_path)
     quantity_names = ['relative_effect_differences', 'n_edge_differences']
     meta_evaluator.plot_quantity_means(quantity_names, filter_params_dict)
+
+
+def test_boxplot_quantity_data_single_filter(pickle_path):
+    _boxplot_quantity_data(
+        pickle_path,
+        filter_params_dict={
+            'hit_rate': {'lower_bound': 0, 'upper_bound': 1, 'n_bins': 10},
+        },
+    )
+
+
+def test_boxplot_quantity_data_too_many_filters(pickle_path):
+    with pytest.raises(BinningError):
+        _boxplot_quantity_data(
+            pickle_path,
+            filter_params_dict={
+                'n_nontrivial_probes': {'lower_bound': 1, 'upper_bound': 8, 'n_bins': 3},
+                'hit_rate': {'lower_bound': 0, 'upper_bound': 1, 'n_bins': 10},
+            },
+        )
+
+
+def _boxplot_quantity_data(pickle_path, filter_params_dict):
+    meta_evaluator = MetaEvaluator.from_pkl(pickle_path)
+    quantity_names = ['relative_effect_differences', 'n_edge_differences']
+    meta_evaluator.boxplot_quantity_data(quantity_names, filter_params_dict)
 
 
 @pytest.mark.skip(reason="weird ValueError in scatter, made function private")

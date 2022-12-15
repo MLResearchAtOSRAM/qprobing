@@ -224,7 +224,12 @@ class MetaEvaluator:
                 The 'n_bins' entry can be omitted to create a static filter.
         """
         params_arr = self._prepare_params_arr(quantity_names, filter_params_dict, set_bounds=True)
-        evaluators = self._get_evaluators(params_arr)
+        if len(self._lower_bounds) > 1:
+            msg = 'Multiple multi-bin filters are not supported yet for full aggregation analysis.'\
+                  'Please restrict the aggregation analysis to means only.'
+            raise BinningError(msg)
+        else:
+            evaluators = self._get_evaluators(params_arr)
         self.quantity_data = {quantity: self._get_quantity_data(quantity, evaluators) for quantity in quantity_names}
 
     def _get_quantity_data(self, quantity, evaluators):
@@ -238,4 +243,8 @@ class MetaEvaluator:
 
 
 class VisualizationError(Exception):
+    pass
+
+
+class BinningError(Exception):
     pass
